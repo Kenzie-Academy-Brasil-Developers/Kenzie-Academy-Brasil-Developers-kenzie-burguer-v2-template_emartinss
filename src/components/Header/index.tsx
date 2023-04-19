@@ -1,39 +1,43 @@
-import { MdShoppingCart, MdLogout } from 'react-icons/md';
+import { MdShoppingCart, MdLogout } from "react-icons/md";
+import SearchForm from "./SearchForm";
+import { StyledHeader } from "./style";
+import LogoKenzieBurguer from "../../assets/LogoKenzieBurguer.svg";
+import { StyledContainer } from "../../styles/grid";
+import { IModalOpenProps } from "../CartModal";
+import { useNavigate } from "react-router-dom";
 
-import SearchForm from './SearchForm';
-import { StyledHeader } from './style';
-import LogoKenzieBurguer from '../../assets/LogoKenzieBurguer.svg';
+const Header = ({ setShowModal }: IModalOpenProps) => {
+  const navigate = useNavigate();
 
-import { StyledContainer } from '../../styles/grid';
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
-const Header = () => (
-  <StyledHeader>
-    <StyledContainer containerWidth={1300}>
-      <div className='flexGrid'>
-        <img
-          src={LogoKenzieBurguer}
-          alt='Kenzie Burguer Logo'
-          className='logo'
-        />
-        <nav className='nav' role='navigation'>
-          <SearchForm />
-          <div className='buttons'>
-            <button
-              type='button'
-              onClick={() => {
-                console.log('Criar lógica');
-              }}
-            >
-              <MdShoppingCart size={28} />
-            </button>
-            <button type='button'>
-              <MdLogout size={28} />
-            </button>
-          </div>
-        </nav>
-      </div>
-    </StyledContainer>
-  </StyledHeader>
-);
+  return (
+    <StyledHeader>
+      <StyledContainer containerWidth={1300}>
+        <div className="flexGrid">
+          <img
+            src={LogoKenzieBurguer}
+            alt="Kenzie Burguer Logo"
+            className="logo"
+          />
+          <nav className="nav" role="navigation">
+            <SearchForm />
+            <div className="buttons">
+              <button type="button" onClick={() => setShowModal(true)}>
+                <MdShoppingCart size={28} />
+              </button>
+              <button type="button" onClick={() => logout()}>
+                <MdLogout size={28} />
+              </button>
+            </div>
+          </nav>
+        </div>
+      </StyledContainer>
+    </StyledHeader>
+  );
+};
 
 export default Header;

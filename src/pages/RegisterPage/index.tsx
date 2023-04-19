@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 
 import { StyledRegisterPage } from './style';
-import RegisterForm from '../../components/Form/RegisterForm';
+
 import IllustrationBox from '../../components/IllustrationBox';
 
 import { StyledContainer, StyledGridBox } from '../../styles/grid';
 import { StyledTitle } from '../../styles/typography';
+import RegisterForm from '../../components/Form/RegisterForm';
 
 const RegisterPage = () => (
     <StyledRegisterPage>
@@ -23,7 +24,7 @@ const RegisterPage = () => (
                 <Link to='/'>Retornar para o login</Link>
               </header>
 
-              <RegisterForm />
+              <RegisterForm/>
             </StyledGridBox>
           </div>
         </div>

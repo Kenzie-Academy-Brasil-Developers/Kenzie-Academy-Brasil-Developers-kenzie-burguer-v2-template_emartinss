@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ShopPage from "./pages/ShopPage";
-import { ProductsProvider } from "./providers/ProductsContext";
+import { ProductsProvider } from "./providers/CartContext";
 import { ProtectRoutes } from "./components/ProtectRoutes";
 
 const Router = () => {
@@ -10,7 +10,7 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/shop" element={<ProtectRoutes/>}>
+      <Route path="/shop" element={<ProtectRoutes />}>
         <Route
           index
           element={

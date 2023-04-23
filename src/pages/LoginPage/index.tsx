@@ -5,9 +5,11 @@ import IllustrationBox from '../../components/IllustrationBox';
 import { StyledButtonLink } from '../../styles/button';
 import { StyledContainer, StyledGridBox } from '../../styles/grid';
 import { StyledParagraph, StyledTitle } from '../../styles/typography';
+import { ToastContainer } from 'react-toastify';
 
 const LoginPage = () => (
   <StyledLoginPage>
+    <ToastContainer/>
     <StyledContainer>
       <div className='flexGrid'>
         <div className='left'>

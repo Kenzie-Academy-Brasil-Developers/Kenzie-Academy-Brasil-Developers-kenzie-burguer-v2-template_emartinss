@@ -4,7 +4,7 @@ import { StyledCartProductCard } from "./style";
 import { StyledTitle } from "../../../../styles/typography";
 import { IProduct } from "../../../../types";
 import { useContext } from "react";
-import { ProductsContext } from "../../../../providers/ProductsContext";
+import { ProductsContext } from "../../../../providers/CartContext";
 
 const CartProductCard = (product: IProduct) => {
   const { removeCart } = useContext(ProductsContext);
@@ -18,7 +18,11 @@ const CartProductCard = (product: IProduct) => {
         <StyledTitle tag="h3" $fontSize="three">
           {product.name}
         </StyledTitle>
-        <button type="button" aria-label="Remover" onClick={() => removeCart(product.id)}>
+        <button
+          type="button"
+          aria-label="Remover"
+          onClick={() => removeCart(product.id)}
+        >
           <MdDelete size={24} />
         </button>
       </div>

@@ -4,4 +4,5 @@ export interface IProduct{
   img: string;
   price: number;
   id: number;
+  seats: string[];
 }

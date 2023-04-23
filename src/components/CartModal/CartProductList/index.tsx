@@ -3,7 +3,7 @@ import { StyledCartProductList } from "./style";
 import { StyledButton } from "../../../styles/button";
 import { StyledParagraph } from "../../../styles/typography";
 import { useContext } from "react";
-import { ProductsContext } from "../../../providers/ProductsContext";
+import { ProductsContext } from "../../../providers/CartContext";
 
 const CartProductList = () => {
   const { productCart, removeAll } = useContext(ProductsContext);

@@ -12,14 +12,17 @@ interface IProductsProviderProps {
 interface IProductsContext {
   products: IProduct[];
   productCart: IProduct[];
+  searchTerm: string;
   addProductToCart: (productId: number) => void;
   removeAll: (cartId: number) => void;
-  removeCart: (cartId: number) => void
+  removeCart: (cartId: number) => void;
+  handleSearch: (event: any) => void;
 }
 
 export const ProductsProvider = ({ children }: IProductsProviderProps) => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [productCart, setProductCart] = useState<IProduct[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   const getProducts = async () => {
     const token = JSON.parse(
@@ -59,15 +62,28 @@ export const ProductsProvider = ({ children }: IProductsProviderProps) => {
     setProductCart(remove);
   };
 
-  const removeCart = (cartId:number) => {
+  const removeCart = (cartId: number) => {
     const remove = productCart.filter((cartItem) => cartItem.id !== cartId);
 
     setProductCart(remove);
   };
 
+  const handleSearch = (event: any) => {
+    event.preventDefault();
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <ProductsContext.Provider
-      value={{ products, addProductToCart, productCart, removeAll, removeCart }}
+      value={{
+        products,
+        addProductToCart,
+        productCart,
+        removeAll,
+        removeCart,
+        handleSearch,
+        searchTerm,
+      }}
     >
       {children}
     </ProductsContext.Provider>

@@ -3,7 +3,7 @@ import { StyledButton } from "../../../styles/button";
 import { StyledParagraph, StyledTitle } from "../../../styles/typography";
 import { IProduct } from "../../../types";
 import { useContext } from "react";
-import { ProductsContext } from "../../../providers/CartContext";
+import { ProductsContext } from "../../../providers/ProductsContext";
 
 interface IProductCartProps {
   product: IProduct;

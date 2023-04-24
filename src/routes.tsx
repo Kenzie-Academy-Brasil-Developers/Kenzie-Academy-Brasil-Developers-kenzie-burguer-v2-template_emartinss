@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ShopPage from "./pages/ShopPage";
-import { ProductsProvider } from "./providers/CartContext";
+import { ProductsProvider } from "./providers/ProductsContext";
 import { ProtectRoutes } from "./components/ProtectRoutes";
 
 const Router = () => {

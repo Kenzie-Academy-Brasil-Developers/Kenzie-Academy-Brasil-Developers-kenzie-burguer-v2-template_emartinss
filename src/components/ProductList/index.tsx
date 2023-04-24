@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { StyledProductList } from "./style";
-import { ProductsContext } from "../../providers/CartContext";
+import { ProductsContext } from "../../providers/ProductsContext";
 const ProductList = () => {
   const { products, searchTerm } = useContext(ProductsContext);
   const [filteredProducts, setFilteredProducts] = useState(products);

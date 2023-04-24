@@ -4,7 +4,7 @@ import { StyledCartProductCard } from "./style";
 import { StyledTitle } from "../../../../styles/typography";
 import { IProduct } from "../../../../types";
 import { useContext } from "react";
-import { ProductsContext } from "../../../../providers/CartContext";
+import { ProductsContext } from "../../../../providers/ProductsContext";
 
 const CartProductCard = (product: IProduct) => {
   const { removeCart } = useContext(ProductsContext);

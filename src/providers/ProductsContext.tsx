@@ -13,6 +13,8 @@ interface IProductsContext {
   products: IProduct[];
   productCart: IProduct[];
   searchTerm: string;
+  cont:number;
+   setCont: (value: React.SetStateAction<number>) => void
   addProductToCart: (productId: number) => void;
   removeAll: (cartId: number) => void;
   removeCart: (cartId: number) => void;
@@ -23,7 +25,8 @@ export const ProductsProvider = ({ children }: IProductsProviderProps) => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [productCart, setProductCart] = useState<IProduct[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
-
+  const [cont, setCont] = useState<number>(0)
+console.log(cont)
   const getProducts = async () => {
     const token = JSON.parse(
       localStorage.getItem("@KenzieBurger:token") || "null"
@@ -50,6 +53,7 @@ export const ProductsProvider = ({ children }: IProductsProviderProps) => {
 
       if (cartProducts) {
         setProductCart([...productCart, cartProducts]);
+        setCont(cont + 1)
       }
     } else {
       toast.error("Item já adicionado ao carrinho");
@@ -83,6 +87,8 @@ export const ProductsProvider = ({ children }: IProductsProviderProps) => {
         removeCart,
         handleSearch,
         searchTerm,
+        setCont,
+        cont
       }}
     >
       {children}

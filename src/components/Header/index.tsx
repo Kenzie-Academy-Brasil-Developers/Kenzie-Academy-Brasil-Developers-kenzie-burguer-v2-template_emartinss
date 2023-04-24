@@ -5,9 +5,18 @@ import LogoKenzieBurguer from "../../assets/LogoKenzieBurguer.svg";
 import { StyledContainer } from "../../styles/grid";
 import { IModalOpenProps } from "../CartModal";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { ProductsContext } from "../../providers/ProductsContext";
 
 const Header = ({ setShowModal }: IModalOpenProps) => {
   const navigate = useNavigate();
+
+  const { setCont, cont } = useContext(ProductsContext);
+
+  const handleClick = () => {
+    setShowModal(true);
+    setCont(0);
+  };
 
   const logout = () => {
     localStorage.clear();
@@ -26,7 +35,12 @@ const Header = ({ setShowModal }: IModalOpenProps) => {
           <nav className="nav" role="navigation">
             <SearchForm />
             <div className="buttons">
-              <button type="button" onClick={() => setShowModal(true)}>
+              <button
+                className="btnCart"
+                type="button"
+                onClick={() => handleClick()}
+              >
+                <p>{cont}</p>
                 <MdShoppingCart size={28} />
               </button>
               <button type="button" onClick={() => logout()}>

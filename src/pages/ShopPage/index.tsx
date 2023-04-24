@@ -6,8 +6,11 @@ import { StyledContainer } from '../../styles/grid';
 import { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 
+
 const ShopPage = () => {
   const [showModal, setShowModal] = useState(false);
+
+  
 
   return (
     <StyledShopPage>

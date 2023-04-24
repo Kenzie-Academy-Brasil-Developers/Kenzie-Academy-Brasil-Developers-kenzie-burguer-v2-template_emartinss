@@ -57,7 +57,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         "@KenzieBurger:userID",
         JSON.stringify(response.data.user.id)
       );
-      console.log(response);
       navigate("/shop");
     } catch (error) {
       toast.error("Email ou senha inválidos");

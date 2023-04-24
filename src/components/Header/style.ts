@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   background: ${({ theme }) => theme.colors.gray0};
@@ -31,6 +31,30 @@ export const StyledHeader = styled.header`
           :hover {
             color: ${({ theme }) => theme.colors.gray300};
           }
+        }
+
+        .btnCart {
+          position: relative;
+        }
+
+        p {
+          position: absolute;
+          top: -10px;
+          right: -6px;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          font-weight: 900;
+
+          background-color: #27ae60;
+          color: #ffffff;
+
+          width: 20px;
+          height: 22px;
+
+          border-radius: 7px;
         }
       }
     }

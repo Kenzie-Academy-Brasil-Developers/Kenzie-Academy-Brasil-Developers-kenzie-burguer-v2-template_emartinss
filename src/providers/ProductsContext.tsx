@@ -26,7 +26,7 @@ export const ProductsProvider = ({ children }: IProductsProviderProps) => {
   const [productCart, setProductCart] = useState<IProduct[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [cont, setCont] = useState<number>(0)
-console.log(cont)
+
   const getProducts = async () => {
     const token = JSON.parse(
       localStorage.getItem("@KenzieBurger:token") || "null"

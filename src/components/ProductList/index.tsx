@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { StyledProductList } from "./style";
 import { ProductsContext } from "../../providers/ProductsContext";
+
 const ProductList = () => {
   const { products, searchTerm } = useContext(ProductsContext);
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -22,11 +23,15 @@ const ProductList = () => {
 
   return (
     <StyledProductList>
-      {filteredProducts &&
+      {filteredProducts.length > 0 ? (
+        filteredProducts &&
         Array.isArray(products) &&
         filteredProducts.map((product) => {
           return <ProductCard product={product} key={product.id} />;
-        })}
+        })
+      ) : (
+       'Nenhum produto encontrado...'
+      )}
     </StyledProductList>
   );
 };

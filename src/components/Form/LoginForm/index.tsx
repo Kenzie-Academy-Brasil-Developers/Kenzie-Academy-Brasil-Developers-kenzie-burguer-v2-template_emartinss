@@ -5,6 +5,8 @@ import { StyledForm } from "../../../styles/form";
 import Input from "../Input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IRegisterFormData } from "../RegisterForm";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginSchema } from "./validator";
 
 const LoginForm = () => {
   const { loginUserApi } = useContext(UserContext);
@@ -13,7 +15,10 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRegisterFormData>({});
+  } = useForm<IRegisterFormData>({
+    resolver:zodResolver(loginSchema),
+    mode:"onChange"
+  });
 
   const submit: SubmitHandler<IRegisterFormData> = (formData) => {
     loginUserApi(formData);
@@ -26,14 +31,14 @@ const LoginForm = () => {
         type="email"
         placeholder=""
         label="Email"
-        err=""
+        err={errors.email?.message || ''}
         register={register("email")}
       />
       <Input
         type="password"
         placeholder=""
         label="Senha"
-        err=""
+        err={errors.password?.message || ''}
         id="senha"
         register={register("password")}
       />

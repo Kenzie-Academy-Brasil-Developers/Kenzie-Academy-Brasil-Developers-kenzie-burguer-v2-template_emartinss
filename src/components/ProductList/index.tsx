@@ -23,15 +23,13 @@ const ProductList = () => {
 
   return (
     <StyledProductList>
-      {filteredProducts.length > 0 ? (
-        filteredProducts &&
-        Array.isArray(products) &&
-        filteredProducts.map((product) => {
-          return <ProductCard product={product} key={product.id} />;
-        })
-      ) : (
-       'Nenhum produto encontrado...'
-      )}
+      {filteredProducts.length > 0
+        ? filteredProducts &&
+          Array.isArray(products) &&
+          filteredProducts.map((product) => {
+            return <ProductCard product={product} key={product.id} />;
+          })
+        : "Nenhum produto encontrado..."}
     </StyledProductList>
   );
 };

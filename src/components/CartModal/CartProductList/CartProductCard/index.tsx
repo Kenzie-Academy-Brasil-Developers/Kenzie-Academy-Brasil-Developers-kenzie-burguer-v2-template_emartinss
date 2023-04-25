@@ -1,5 +1,4 @@
 import { MdDelete } from "react-icons/md";
-
 import { StyledCartProductCard } from "./style";
 import { StyledTitle } from "../../../../styles/typography";
 import { IProduct } from "../../../../types";

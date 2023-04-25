@@ -18,7 +18,7 @@ interface IProductsContext {
   addProductToCart: (productId: number) => void;
   removeAll: (cartId: number) => void;
   removeCart: (cartId: number) => void;
-  handleSearch: (event: any) => void;
+  handleSearch: (event: React.FormEvent<HTMLInputElement>) => void;
 }
 
 export const ProductsProvider = ({ children }: IProductsProviderProps) => {
@@ -72,9 +72,9 @@ export const ProductsProvider = ({ children }: IProductsProviderProps) => {
     setProductCart(remove);
   };
 
-  const handleSearch = (event: any) => {
+  const handleSearch = (event:React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setSearchTerm(event.target.value);
+    setSearchTerm(event.currentTarget.value);
   };
 
   return (
